@@ -23,6 +23,11 @@ export const AppProvider = ({ children }) => {
     dispatch({ type: "theme", payload: theme });
   };
 
+  const handleLogin = (body) =>
+    dispatch({ type: "login", payload: { isLogged: true, userLogged: body } });
+
+  // crear dispatch para agregar favoritos
+
   useEffect(() => {
     getUsers();
     dispatch({ type: "theme", payload: "dark" });
@@ -31,6 +36,7 @@ export const AppProvider = ({ children }) => {
   const properties = {
     ...state,
     themeHandler,
+    handleLogin,
   };
   return (
     <AppContext.Provider value={properties}>{children}</AppContext.Provider>
