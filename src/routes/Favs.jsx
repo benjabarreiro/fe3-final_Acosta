@@ -1,17 +1,17 @@
 import React, { useContext } from "react";
 import AppContext from "../context/AppContext";
-import Card from "../componets/Card";
+import DentistsContainer from "../containers/DentistsContainer";
 
 export default function Favs() {
-  const { favsDentists, appTheme } = useContext(AppContext);
+  const { favsDentists, appTheme, deleteAllFavsDentits } =
+    useContext(AppContext);
   return (
     <div className={appTheme}>
-      <h1>Favorites</h1>
-      <div className="card-grid container">
-        {favsDentists?.map((dentist) => (
-          <Card {...dentist} key={dentist.id} />
-        ))}
-      </div>
+      <h1>Favoritos</h1>
+      <button onClick={deleteAllFavsDentits} className="btn btn-light">
+        Borrar todos
+      </button>
+      <DentistsContainer dentists={favsDentists} />
     </div>
   );
 }

@@ -13,7 +13,7 @@ function App() {
             {routes.map(({ id, path, Component }) => (
               <Route key={id} path={path} element={<Component />} />
             ))}
-            {/* <Route path="*" element={<Navigate to="/home" />} /> */}
+            <Route path="*" element={<Navigate to="/home" />} />
           </Route>
           <Route path="/" element={<Navigate to="/login" />} />
         </Routes>

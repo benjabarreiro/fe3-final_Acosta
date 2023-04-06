@@ -1,20 +1,15 @@
 import { Navigate, Outlet } from "react-router";
 import { useContext } from "react";
 import AppContext from "../context/AppContext";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
+import MainLayout from "./MainLayout";
 
 export const ProtectedRoutes = () => {
-  const { loggedIn, appTheme } = useContext(AppContext);
-  // revisar
-  return loggedIn ? (
-    <div className={`app ${appTheme}}`}>
-      <Navbar />
-      <main className={appTheme}>
-        <Outlet />
-      </main>
-      <Footer />
-    </div>
+  const { isLogged } = useContext(AppContext);
+
+  return isLogged ? (
+    <MainLayout>
+      <Outlet />
+    </MainLayout>
   ) : (
     <Navigate to="/login" />
   );

@@ -3,8 +3,9 @@ import styles from "./Card.module.css";
 import { useContext } from "react";
 import AppContext from "../context/AppContext";
 
-const Card = ({ id, name, username }) => {
-  const { appTheme } = useContext(AppContext);
+const Card = (props) => {
+  const { id, name, username } = props;
+  const { appTheme, editFavsDentists, showFavButton } = useContext(AppContext);
   return (
     <>
       <div className={`card`}>
@@ -14,7 +15,6 @@ const Card = ({ id, name, username }) => {
           alt="doctor placeholder"
         />
         <div className={`card-body ${styles.CardBody} ${appTheme}`}>
-          {/* falta agregar boton a favoritos */}
           <Link to={`/dentist/${id}`} className={appTheme}>
             <h5 className={`card-title ${styles.title} ${appTheme}`}>
               Nombre: {name}
@@ -23,6 +23,12 @@ const Card = ({ id, name, username }) => {
               Usuario: {username}
             </h5>
           </Link>
+          <button
+            className="btn btn-light"
+            onClick={() => editFavsDentists(props)}
+          >
+            {showFavButton(id)}
+          </button>
         </div>
       </div>
     </>

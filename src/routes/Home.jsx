@@ -1,17 +1,13 @@
 import React, { useContext } from "react";
-import Card from "../componets/Card";
 import AppContext from "../context/AppContext";
+import DentistsContainer from "../containers/DentistsContainer";
 
 export default function Home() {
   const { dentists, appTheme } = useContext(AppContext);
   return (
     <div className={appTheme}>
-      <h1>Home</h1>
-      <div className="card-grid container">
-        {dentists?.map((dentist) => (
-          <Card {...dentist} key={dentist.id} />
-        ))}
-      </div>
+      <h1>Inicio</h1>
+      <DentistsContainer dentists={dentists} />
     </div>
   );
 }

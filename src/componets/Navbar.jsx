@@ -6,17 +6,11 @@ import AppContext from "../context/AppContext";
 const Navbar = () => {
   const { handleLogout, themeHandler, appTheme } = useContext(AppContext);
   const manageTheme = () => {
-    console.log(appTheme);
     if (!appTheme) {
-      console.log(1);
       themeHandler("light");
     } else if (appTheme === "dark") {
-      console.log(2);
-
       themeHandler("light");
     } else if (appTheme === "light") {
-      console.log(3);
-
       themeHandler("dark");
     }
   };
