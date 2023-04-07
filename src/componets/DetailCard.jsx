@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import styles from "./DetailCard.module.css";
-import AppContext from "../context/AppContext";
+import DentistsContext from "../context/DentistsContext";
 
 const DetailCard = ({ dentist }) => {
-  const { editFavsDentists, showFavButton } = useContext(AppContext);
+  const { editFavsDentists, showFavButton } = useContext(DentistsContext);
 
   return (
     <>

@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import styles from "./Card.module.css";
 import { useContext } from "react";
-import AppContext from "../context/AppContext";
+import DentistsContext from "../context/DentistsContext";
+import ThemeContext from "../context/ThemeContext";
 
 const Card = (props) => {
   const { id, name, username } = props;
-  const { appTheme, editFavsDentists, showFavButton } = useContext(AppContext);
+  const { editFavsDentists, showFavButton } = useContext(DentistsContext);
+  const { appTheme } = useContext(ThemeContext);
   return (
     <>
       <div className={`card`}>

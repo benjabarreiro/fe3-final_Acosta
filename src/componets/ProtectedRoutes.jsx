@@ -1,10 +1,10 @@
 import { Navigate, Outlet } from "react-router";
 import { useContext } from "react";
-import AppContext from "../context/AppContext";
+import AuthContext from "../context/AuthContext";
 import MainLayout from "./MainLayout";
 
 export const ProtectedRoutes = () => {
-  const { isLogged } = useContext(AppContext);
+  const { isLogged } = useContext(AuthContext);
 
   return isLogged ? (
     <MainLayout>

@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import { useContext } from "react";
-import AppContext from "../context/AppContext";
+import ThemeContext from "../context/ThemeContext";
+import AuthContext from "../context/AuthContext";
 
 const Navbar = () => {
-  const { handleLogout, themeHandler, appTheme } = useContext(AppContext);
+  const { themeHandler, appTheme } = useContext(ThemeContext);
+  const { handleLogout } = useContext(AuthContext);
   const manageTheme = () => {
     if (!appTheme) {
       themeHandler("light");

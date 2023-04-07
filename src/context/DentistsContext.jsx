@@ -1,15 +1,15 @@
-import { createContext, useEffect, useReducer, useState } from "react";
 import axios from "axios";
+import { createContext, useEffect, useReducer } from "react";
 import {
   initialContext,
   initialState,
   isInList,
   reducer,
-} from "../utils/app-context";
+} from "./utils/dentists-context";
 
-const AppContext = createContext(initialContext);
+const DentistsContext = createContext(initialContext);
 
-export const AppProvider = ({ children }) => {
+export const DentistsProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const getDentists = async () => {
@@ -21,24 +21,6 @@ export const AppProvider = ({ children }) => {
     } catch (err) {
       console.err("Hubo un error", err);
     }
-  };
-
-  const themeHandler = (theme) => {
-    localStorage.setItem("theme", theme);
-    dispatch({ type: "theme", payload: theme });
-  };
-
-  const handleLogin = (body) => {
-    dispatch({ type: "login", payload: { isLogged: true, userLogged: body } });
-    localStorage.setItem("auth", JSON.stringify(body));
-  };
-
-  const handleLogout = () => {
-    dispatch({
-      type: "login",
-      payload: { isLogged: false, userLogged: { email: "", password: "" } },
-    });
-    localStorage.removeItem("auth");
   };
 
   const editFavsDentists = (dentist) =>
@@ -57,16 +39,15 @@ export const AppProvider = ({ children }) => {
 
   const properties = {
     ...state,
-    themeHandler,
-    handleLogin,
-    handleLogout,
     editFavsDentists,
     deleteAllFavsDentits,
     showFavButton,
   };
   return (
-    <AppContext.Provider value={properties}>{children}</AppContext.Provider>
+    <DentistsContext.Provider value={properties}>
+      {children}
+    </DentistsContext.Provider>
   );
 };
 
-export default AppContext;
+export default DentistsContext;

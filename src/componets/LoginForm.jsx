@@ -2,7 +2,7 @@ import styles from "./Form.module.css";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import AppContext from "../context/AppContext";
+import AuthContext from "../context/AuthContext";
 import { useContext } from "react";
 import {
   email_regex,
@@ -30,7 +30,7 @@ const inputs = [
 
 const LoginForm = () => {
   const navigate = useNavigate();
-  const { handleLogin } = useContext(AppContext);
+  const { handleLogin } = useContext(AuthContext);
   const getInitialValues = () => ({
     email: "",
     password: "",
@@ -82,17 +82,7 @@ const LoginForm = () => {
             required
           />
           {errors[name] && (
-            <p
-              style={{
-                margin: "0",
-                color: "#FF5555",
-                fontSize: "12px",
-                fontWeight: "bold",
-                textAlign: "left",
-              }}
-            >
-              {errors[name]}
-            </p>
+            <p className={styles.errorMessage}>{errors[name]}</p>
           )}
         </div>
       ))}

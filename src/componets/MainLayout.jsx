@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import AppContext from "../context/AppContext";
+import ThemeContext from "../context/ThemeContext";
 
 export default function MainLayout({ children }) {
-  const { appTheme } = useContext(AppContext);
+  const { appTheme } = useContext(ThemeContext);
 
   return (
     <div className={`app ${appTheme}}`}>

@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
-import AppContext from "../context/AppContext";
+import DentistsContext from "../context/DentistsContext";
+import ThemeContext from "../context/ThemeContext";
 import DentistsContainer from "../containers/DentistsContainer";
 
 export default function Favs() {
-  const { favsDentists, appTheme, deleteAllFavsDentits } =
-    useContext(AppContext);
+  const { favsDentists, deleteAllFavsDentits } = useContext(DentistsContext);
+  const { appTheme } = useContext(ThemeContext);
   return (
     <div className={appTheme}>
       <h1>Favoritos</h1>

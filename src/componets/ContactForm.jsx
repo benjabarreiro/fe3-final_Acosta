@@ -10,7 +10,7 @@ import {
   objHasValues,
 } from "../utils/form";
 import styles from "../componets/Form.module.css";
-import AppContext from "../context/AppContext";
+import ThemeContext from "../context/ThemeContext";
 
 const initialState = {
   fullname: "",
@@ -20,7 +20,7 @@ const initialState = {
 
 export default function ContactForm() {
   const [consultation, setConsultation] = useState(initialState);
-  const { appTheme } = useContext(AppContext);
+  const { appTheme } = useContext(ThemeContext);
 
   const getValidationSchema = () =>
     Yup.lazy(() =>
@@ -66,7 +66,9 @@ export default function ContactForm() {
           value={values["fullname"]}
           onChange={(e) => setFieldValue("fullname", e.target.value)}
         />
-        {errors?.fullname && <p>{errors.fullname}</p>}
+        {errors?.fullname && (
+          <p className={styles.errorMessage}>{errors.fullname}</p>
+        )}
         <input
           className={`form-control ${styles.inputSpacing} ${appTheme}`}
           placeholder="Email"
@@ -76,7 +78,7 @@ export default function ContactForm() {
           value={values["email"]}
           onChange={(e) => setFieldValue("email", e.target.value)}
         />
-        {errors?.email && <p>{errors.email}</p>}
+        {errors?.email && <p className={styles.errorMessage}>{errors.email}</p>}
         <textarea
           className={`form-control ${styles.inputSpacing} ${appTheme}`}
           placeholder="Consulta"
@@ -86,7 +88,9 @@ export default function ContactForm() {
           onChange={(e) => setFieldValue("consultation", e.target.value)}
           required
         />
-        {errors?.consultation && <p>{errors.consultation}</p>}
+        {errors?.consultation && (
+          <p className={styles.errorMessage}>{errors.consultation}</p>
+        )}
         <button
           className="btn btn-primary"
           type="submit"

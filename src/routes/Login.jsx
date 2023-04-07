@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 import styles from "../componets/Form.module.css";
 
 import LoginForm from "../componets/LoginForm";
-import AppContext from "../context/AppContext";
+import ThemeContext from "../context/ThemeContext";
 
 export default function Login() {
-  const { appTheme } = useContext(AppContext);
+  const { appTheme } = useContext(ThemeContext);
 
   return (
     <>

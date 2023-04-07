@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import AppContext from "../context/AppContext";
+import ThemeContext from "../context/ThemeContext";
 import DentistContainer from "../containers/DentistContainer";
 
 export default function Dentist() {
-  const { appTheme } = useContext(AppContext);
+  const { appTheme } = useContext(ThemeContext);
   return (
     <div className={appTheme}>
       <DentistContainer />
