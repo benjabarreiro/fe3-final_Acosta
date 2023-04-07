@@ -8,9 +8,11 @@ export default function Favs() {
   return (
     <div className={appTheme}>
       <h1>Favoritos</h1>
-      <button onClick={deleteAllFavsDentits} className="btn btn-light">
-        Borrar todos
-      </button>
+      <div className="elements-container">
+        <button onClick={deleteAllFavsDentits} className="btn btn-light">
+          Borrar todos
+        </button>
+      </div>
       <DentistsContainer dentists={favsDentists} />
     </div>
   );

@@ -4,6 +4,14 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import AppContext from "../context/AppContext";
 import { useContext } from "react";
+import {
+  email_regex,
+  field_required,
+  invalid_email,
+  minCharacters,
+  objHasKeys,
+  objHasValues,
+} from "../utils/form";
 
 const inputs = [
   {
@@ -32,16 +40,17 @@ const LoginForm = () => {
     Yup.lazy(() =>
       Yup.object().shape({
         email: Yup.string()
-          .email()
-          .trim("No debe tener espacios en blanco")
+          .email(invalid_email)
+          .matches(email_regex)
+          .trim()
           .strict()
-          .required("Campo Obligatorio"),
+          .required(field_required),
 
         password: Yup.string()
-          .trim("No debe tener espacios en blanco")
+          .trim()
           .strict()
-          .min(6, "La contraseña debe tener al menos 6 caracteres")
-          .required("Campo Obligatorio"),
+          .min(6, minCharacters("La contraseña", 6))
+          .required(field_required),
       })
     );
 
@@ -54,13 +63,13 @@ const LoginForm = () => {
   const { values, setFieldValue, errors, handleSubmit } = useFormik({
     initialValues: getInitialValues(),
     validationSchema: getValidationSchema(),
-    validateOnChange: false,
+    validateOnChange: true,
     validateOnBlur: false,
     onSubmit,
   });
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} noValidate>
       {inputs.map(({ id, placeholder, name, type }) => (
         <div key={id}>
           <input
@@ -87,7 +96,11 @@ const LoginForm = () => {
           )}
         </div>
       ))}
-      <button className="btn btn-primary" type="submit">
+      <button
+        className="btn btn-primary"
+        type="submit"
+        disabled={objHasValues(values) || objHasKeys(errors)}
+      >
         Send
       </button>
     </form>
