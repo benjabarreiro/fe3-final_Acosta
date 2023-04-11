@@ -12,8 +12,15 @@
 
 .CardBody{
   width: 100%;
+  position: relative;
 }
 
 .title{
   height: 2rem;
+}
+
+.hoverMessage {
+  position: absolute;
+  top: 14px;
+  text-align: center;
 }

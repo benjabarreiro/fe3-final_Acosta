@@ -36,3 +36,7 @@
   max-width: 2rem;
   height: auto;
 }
+
+.icon:hover {
+  cursor: pointer;
+}

@@ -7,9 +7,9 @@ export default function MainLayout({ children }) {
   const { appTheme } = useContext(ThemeContext);
 
   return (
-    <div className={`app ${appTheme}}`}>
+    <div className={`app ${appTheme}`}>
       <Navbar />
-      <main className={appTheme}>{children}</main>
+      <main>{children}</main>
       <Footer />
     </div>
   );

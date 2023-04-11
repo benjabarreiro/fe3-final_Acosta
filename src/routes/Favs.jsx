@@ -10,7 +10,7 @@ export default function Favs() {
     <div className={appTheme}>
       <h1>Favoritos</h1>
       <div className="elements-container">
-        <button onClick={deleteAllFavsDentits} className="btn btn-light">
+        <button onClick={deleteAllFavsDentits} className="btn btn-light mb-3">
           Borrar todos
         </button>
       </div>

@@ -16,8 +16,12 @@ code {
     monospace;
 }
 
+.app {
+  height: 100%;
+}
+
 main{
-  min-height: calc(100vh - 292px);
+  min-height: calc(100vh - 283px);
 }
 
 h1{

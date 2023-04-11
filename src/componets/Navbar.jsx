@@ -23,10 +23,7 @@ const Navbar = () => {
         aria-label="Third navbar example"
       >
         <div className="container">
-          <Link
-            className={`navbar-brand ${styles.navbarBrand} ${appTheme}`}
-            to="/home"
-          >
+          <Link className={`navbar-brand ${styles.navbarBrand}`} to="/home">
             DH Odonto
           </Link>
           <button
@@ -47,23 +44,23 @@ const Navbar = () => {
           >
             <ul className="navbar-nav mb-2 mb-sm-0">
               <li className={`nav-item ${styles.navBarLink}`}>
-                <Link className={`nav-link ${appTheme}`} to="/home">
+                <Link className={`nav-link`} to="/home">
                   Home
                 </Link>
               </li>
               <li className={`nav-item ${styles.navBarLink}`}>
-                <Link className={`nav-link ${appTheme}`} to="/favs">
+                <Link className={`nav-link`} to="/favs">
                   Favorites
                 </Link>
               </li>
               <li className={`nav-item ${styles.navBarLink}`}>
-                <Link className={`nav-link ${appTheme}`} to="/contact">
+                <Link className={`nav-link`} to="/contact">
                   Contact
                 </Link>
               </li>
               <li className={`nav-item ${styles.navBarLink}`}>
                 <Link
-                  className={`nav-link ${appTheme}`}
+                  className={`nav-link`}
                   onClick={() => handleLogout()}
                   to="/login"
                 >
