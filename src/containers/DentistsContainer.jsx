@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "../componets/Card";
+import Card from "../components/Card";
 
 export default function DentistsContainer({ dentists }) {
   return (

@@ -9,7 +9,7 @@ import {
   objHasKeys,
   objHasValues,
 } from "../utils/form";
-import styles from "../componets/Form.module.css";
+import styles from "../components/Form.module.css";
 import ThemeContext from "../context/ThemeContext";
 
 const initialState = {

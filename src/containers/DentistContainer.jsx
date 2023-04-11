@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import DetailCard from "../componets/DetailCard";
+import DetailCard from "../components/DetailCard";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 

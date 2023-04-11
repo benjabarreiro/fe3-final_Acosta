@@ -3,13 +3,13 @@ import { AuthProvider } from "./context/AuthContext";
 import { ThemeProvider } from "./context/ThemeContext";
 import { DentistsProvider } from "./context/DentistsContext";
 import { Login, routes } from "./navigation/routes";
-import { ProtectedRoutes } from "./componets/ProtectedRoutes";
+import { ProtectedRoutes } from "./components/ProtectedRoutes";
 
 function App() {
   return (
     <ThemeProvider>
-      <AuthProvider>
-        <DentistsProvider>
+      <DentistsProvider>
+        <AuthProvider>
           <BrowserRouter>
             <Routes>
               <Route path="/login" element={<Login />} />
@@ -22,8 +22,8 @@ function App() {
               <Route path="/" element={<Navigate to="/login" />} />
             </Routes>
           </BrowserRouter>
-        </DentistsProvider>
-      </AuthProvider>
+        </AuthProvider>
+      </DentistsProvider>
     </ThemeProvider>
   );
 }

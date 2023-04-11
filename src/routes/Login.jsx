@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import styles from "../componets/Form.module.css";
+import styles from "../components/Form.module.css";
 
-import LoginForm from "../componets/LoginForm";
+import LoginForm from "../components/LoginForm";
 import ThemeContext from "../context/ThemeContext";
 
 export default function Login() {

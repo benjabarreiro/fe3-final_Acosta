@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import styles from "../componets/Form.module.css";
+import styles from "../components/Form.module.css";
 import ThemeContext from "../context/ThemeContext";
-import ContactForm from "../componets/ContactForm";
+import ContactForm from "../components/ContactForm";
 
 export default function Contact() {
   const { appTheme } = useContext(ThemeContext);
